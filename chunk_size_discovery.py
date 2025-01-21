@@ -1,4 +1,3 @@
-import nest_asyncio
 from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, Settings
 from llama_index.core.llama_dataset.generator import RagDatasetGenerator
 from llama_index.core.evaluation import FaithfulnessEvaluator, RelevancyEvaluator
