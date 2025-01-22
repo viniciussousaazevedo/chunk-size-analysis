@@ -5,7 +5,7 @@ This Repo is a fork from [this](https://www.llamaindex.ai/blog/evaluating-the-id
 - Removing deprecated content
   
 To run it:
-1. Set your own `GROQ_API_KEY` [here](https://console.groq.com/keys)
+1. Set your own `GROQ_API_KEY` environment variable. You can create your key [here](https://console.groq.com/keys)
 2. Run the installation requirements command bellow
    ```bash
    pip install llama-index llama-index-embeddings-huggingface llama-index-llms-groq spacy
