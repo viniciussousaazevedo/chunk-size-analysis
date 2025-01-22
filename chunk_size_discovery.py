@@ -4,7 +4,6 @@ from llama_index.core.evaluation import FaithfulnessEvaluator, RelevancyEvaluato
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.groq import Groq
 import time
-
 reader = SimpleDirectoryReader("./data/content/")
 documents = reader.load_data()
 
@@ -66,6 +65,7 @@ def evaluate_response_time_and_accuracy(chunk_size, eval_questions):
     return average_response_time, average_faithfulness, average_relevancy
 
 for n in range(10):
+    time.sleep(5 * 60)
     print("starting iteration number " + str(n+1))
     with open('output.md', 'a') as file:
         file.write("## Run number " + str(n+1))
