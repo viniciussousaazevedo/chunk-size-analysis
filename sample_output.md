@@ -61,7 +61,7 @@
 - Average Faithfulness: 33.33%
 - Average Relevancy: 50.00%
 
-## Média das médias
+## Overall average
 ### Chunk size 128
 - Average Response time: 1.65s
 - Average Faithfulness: 61.11%
