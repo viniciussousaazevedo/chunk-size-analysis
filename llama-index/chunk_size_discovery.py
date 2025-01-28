@@ -4,7 +4,7 @@ from llama_index.core.evaluation import FaithfulnessEvaluator, RelevancyEvaluato
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.groq import Groq
 import time
-reader = SimpleDirectoryReader("./data/content/")
+reader = SimpleDirectoryReader("./data")
 documents = reader.load_data()
 
 # We will use llama3-70b for evaluating the responses
@@ -66,12 +66,12 @@ def evaluate_response_time_and_accuracy(chunk_size, eval_questions):
 
 for n in range(10):
     print("starting iteration number " + str(n+1))
-    with open('output.md', 'a') as file:
+    with open('llama-index/output.md', 'a') as file:
         file.write("## Run number " + str(n+1))
     for chunk_size in [128, 256, 512, 1024]:
         print("starting with chunk size = " + str(chunk_size))
         avg_response_time, avg_faithfulness, avg_relevancy = evaluate_response_time_and_accuracy(chunk_size, eval_questions)
-        with open('output.md', 'a') as file:
+        with open('llama-index/output.md', 'a') as file:
             file.write(f"""
 ### Chunk size {chunk_size}
 - Average Response time: {avg_response_time:.2f}s
@@ -79,6 +79,6 @@ for n in range(10):
 - Average Relevancy: {avg_relevancy*100:.2f}%
             """)
         print("finishing with chunk size = " + str(chunk_size))
-    with open('output.md', 'a') as file:
+    with open('llama-index/output.md', 'a') as file:
         file.write("\n")
     print("finishing iteration number " + str(n+1))
