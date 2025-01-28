@@ -10,7 +10,7 @@ In order to run it:
 1. Set your own `GROQ_API_KEY` environment variable. You can create your key [here](https://console.groq.com/keys)
 2. Run the installation requirements command bellow
    ```bash
-   pip install llama-index llama-index-embeddings-huggingface llama-index-llms-groq spacy
+   pip install llama-index llama-index-embeddings-huggingface llama-index-llms-groq spacy unstructured "unstructured[pdf]" onnxruntime[full] unstructured[all]
    ```
 3. Run the main script for LlamaIndex.
 
