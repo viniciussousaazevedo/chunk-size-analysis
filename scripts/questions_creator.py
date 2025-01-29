@@ -1,6 +1,6 @@
 from llama_index.core import SimpleDirectoryReader, Settings
 from llama_index.llms.groq import Groq
-from constants import *
+from scripts.constants import *
 
 def create_questions(llm, documents, num_questions=10):
     Settings.llm = llm

@@ -3,14 +3,16 @@ from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from llama_index.core.node_parser import LangchainNodeParser
-from questions_creator import create_questions
+from scripts.questions_creator import create_questions
 from llama_index.core.schema import Document
 from llama_index.llms.groq import Groq
-from constants import *
+from scripts.constants import *
 import time
 import os
 
 def run():
+    if not os.path.exists(OUTPUT_FOLDER):
+        os.mkdir(OUTPUT_FOLDER)
     if os.path.exists(QA_OUTPUT_FILE):
         os.remove(QA_OUTPUT_FILE)
 

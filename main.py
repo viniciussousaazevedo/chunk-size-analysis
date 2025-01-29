@@ -1,5 +1,5 @@
-import ct_gen_chunk_size_analysis as ct_gen
-import qa_chunk_size_analysis as qa
+import scripts.ct_gen_chunk_size_analysis as ct_gen
+import scripts.qa_chunk_size_analysis as qa
 import argparse
 
 if __name__ == "__main__":
