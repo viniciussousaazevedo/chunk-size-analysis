@@ -82,7 +82,7 @@ for n in range(3):
     print("Starting iteration number " + str(n+1))
     with open(LLAMA_INDEX_OUTPUT_FOLDER, 'a') as file:
         file.write("## Run number " + str(n+1))
-    for chunk_size in [128, 256, 512, 1024]:
+    for chunk_size in [1024, 512, 128, 256]:
         print("\tStarting with chunk size = " + str(chunk_size))
         avg_response_time, avg_faithfulness, avg_relevancy = evaluate_response_time_and_accuracy(chunk_size, eval_questions)
         with open(LLAMA_INDEX_OUTPUT_FOLDER, 'a') as file:
