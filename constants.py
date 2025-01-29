@@ -1,2 +1,5 @@
-CONTENT_FOLDER="./data/context/hamlet"
-LLAMA_INDEX_OUTPUT_FOLDER = "output.md"
+QA_CONTEXT_FOLDER="./data/qa"
+QA_OUTPUT_FILE = "qa_output.md"
+US_CONTEXT_FOLDER="./data/context/ct_gen/context"
+US_CONTENT_FOLDER="./data/ct_gen/us"
+CT_GEN_OUTPUT_FILE="ct_gen_output.md"

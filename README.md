@@ -10,14 +10,15 @@ In order to run it:
 1. Set your own `GROQ_API_KEY` environment variable. You can create your key [here](https://console.groq.com/keys)
 2. Run the installation requirements command bellow
    ```bash
-   pip install llama-index llama-index-embeddings-huggingface llama-index-llms-groq spacy
+   pip install llama-index llama-index-embeddings-huggingface llama-index-llms-groq spacy langchain
    ```
+3. (Optional) Set context for QA 
 3. Run the main script
    3.1. If you want to evaluate question answering, use the command below:
    ```bash
-   python chunk_size_discovery.py -qa
+   python main.py -qa
    ```
    3.2. If you want to evaluate test case generation, use the command below:
    ```bash
-   python chunk_size_discovery.py -tc
+   python main.py -tc
    ```

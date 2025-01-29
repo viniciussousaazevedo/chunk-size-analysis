@@ -18,7 +18,7 @@ def create_questions(llm, documents, num_questions=10):
     return [q.strip() for q in questions if q.strip()]
 
 if __name__ == "__main__":
-    reader = SimpleDirectoryReader(CONTENT_FOLDER)
+    reader = SimpleDirectoryReader(QA_CONTEXT_FOLDER)
     documents = reader.load_data()
     llm = Groq(model="llama3-70b-8192")
     generated_questions = create_questions(llm, documents)
