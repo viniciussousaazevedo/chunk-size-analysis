@@ -1,9 +1,8 @@
 from llama_index.core import SimpleDirectoryReader, Settings
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.groq import Groq
 from constants import *
 
-def create_questions(llm, documents, num_questions=20):
+def create_questions(llm, documents, num_questions=10):
     Settings.llm = llm
     # Combine all documents into one string
     full_text = "\n".join([doc.text for doc in documents])
@@ -12,10 +11,10 @@ def create_questions(llm, documents, num_questions=20):
         f"Based on the following text, create {num_questions} distinct questions "
         f"that cover its key points:\n\n{full_text}\n\n. Do not enumarate your questions. Questions:"
     )
-    
+    print("Creating questions for evaluation...")
     response = llm.complete(prompt=prompt)
-    
     questions = response.text.split("\n")[2:]
+    print("Done!\n")
     return [q.strip() for q in questions if q.strip()]
 
 if __name__ == "__main__":

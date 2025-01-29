@@ -1,6 +1,7 @@
 # Chunk Size Analysis
 The idea behind this repo comes from [this](https://www.llamaindex.ai/blog/evaluating-the-ideal-chunk-size-for-a-rag-system-using-llamaindex-6207e5d3fec5) LlamaIndex project. The main changes are:
 - Using [Groq](https://groq.com/) Llama3.2 11b for QA and Llama3 70b for evaluation
+- Testing LangChain TextSplitter encapsulated in LlamaIndex framework
 - making 3 runs of the script, storing the outputs at `output.md` for both LlamaIndex and LangChain folders
 - Removing deprecated content and questions datasets
 - Asking the model to create test cases based on an User Story besides answering questions provided from the evaluation LLM
