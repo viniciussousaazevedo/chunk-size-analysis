@@ -3,9 +3,9 @@ from llama_index.core.node_parser import LangchainNodeParser
 from llama_index.core.evaluation import FaithfulnessEvaluator, RelevancyEvaluator
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.groq import Groq
-from questions_creator import create_questions
+from llama_index_version.questions_creator import create_questions
 import time
-from constants import *
+from llama_index_version.constants import *
 import os
 
 if os.path.exists(LLAMA_INDEX_OUTPUT_FOLDER):

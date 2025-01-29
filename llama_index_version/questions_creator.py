@@ -1,7 +1,7 @@
 from llama_index.core import SimpleDirectoryReader, Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.groq import Groq
-from constants import *
+from llama_index_version.constants import *
 
 def create_questions(llm, documents, num_questions=20):
     Settings.llm = llm
