@@ -1,0 +1,9 @@
+{
+    "id": "GH01",
+    "title": "Cloning empty repository as Enterprise User",
+    "description": "As a Enterprise GitHub User, I want to clone an empty repository to start making my own contributions for the cloned repository",
+    "acceptance_criteria": [
+        "Enterprise users are only allowed to clone empty repositories using Desktop set up."
+    ],
+    "disclaimer": "this is intentionally made up business rules just to see how the model operates in using context to create good test cases"
+}

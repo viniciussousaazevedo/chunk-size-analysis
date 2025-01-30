@@ -3,7 +3,7 @@ from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from llama_index.core.node_parser import LangchainNodeParser
-from scripts.questions_creator import create_questions
+from scripts.qa_questions_creator import create_questions
 from llama_index.core.schema import Document
 from llama_index.llms.groq import Groq
 from scripts.constants import *
@@ -13,8 +13,8 @@ import os
 def run():
     if not os.path.exists(OUTPUT_FOLDER):
         os.mkdir(OUTPUT_FOLDER)
-    if os.path.exists(QA_OUTPUT_FILE):
-        os.remove(QA_OUTPUT_FILE)
+    if os.path.exists(QA_OUTPUT_FILE_PATH):
+        os.remove(QA_OUTPUT_FILE_PATH)
 
     reader = SimpleDirectoryReader(QA_CONTEXT_FOLDER)
     documents = reader.load_data()
@@ -31,9 +31,9 @@ def run():
 
     for n in range(3):
         print("Starting iteration number " + str(n+1))
-        with open(QA_OUTPUT_FILE, 'a') as file:
+        with open(QA_OUTPUT_FILE_PATH, 'a') as file:
             file.write("## Run number " + str(n+1))
-        for chunk_size in [128, 256, 512, 1024]:
+        for chunk_size in CHUNK_SIZES:
             print("\tStarting with chunk size = " + str(chunk_size))
             avg_response_time, avg_faithfulness, avg_relevancy = evaluate_response_time_and_accuracy(
                 documents,
@@ -42,7 +42,7 @@ def run():
                 faithfulness,
                 relevancy
                 )
-            with open(QA_OUTPUT_FILE, 'a') as file:
+            with open(QA_OUTPUT_FILE_PATH, 'a') as file:
                 file.write(f"""
     ### Chunk size {chunk_size}
     - Average Response time: {avg_response_time:.2f}s
@@ -50,7 +50,7 @@ def run():
     - Average Relevancy: {avg_relevancy*100:.2f}%
                 """)
             print("\tFinishing with chunk size = " + str(chunk_size))
-        with open(QA_OUTPUT_FILE, 'a') as file:
+        with open(QA_OUTPUT_FILE_PATH, 'a') as file:
             file.write("\n")
         print("Finishing iteration number " + str(n+1))
 

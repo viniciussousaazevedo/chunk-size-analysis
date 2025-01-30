@@ -1,4 +1,4 @@
-import scripts.ct_gen_chunk_size_analysis as ct_gen
+import scripts.ct_gen as ct_gen
 import scripts.qa_chunk_size_analysis as qa
 import argparse
 
